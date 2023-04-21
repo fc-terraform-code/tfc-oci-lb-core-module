@@ -4,7 +4,7 @@ terraform {
     organization = var.organization
 
     workspaces {
-      name = var.workspace_name
+      name = var.name
     }
   }
 }
