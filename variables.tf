@@ -1,4 +1,4 @@
-variable "tenancy_ocid" {}
+#variable "tenancy_ocid" {}
 variable "user_ocid" {}
 variable "private_key" {}
 variable "compartment_ocid" {}
