@@ -1,3 +1,14 @@
+#--Configuracion para ser utilizada con GitHub Actions y Terraform Cloud
+terraform {
+  cloud {
+    organization = "tron_dataware"
+
+    workspaces {
+      name = "learn-terraform-github-actions"
+    }
+  }
+}
+
 resource "oci_load_balancer_load_balancer" "this" {
   #count          = var.lb_options == null ? 0 : length(var.lb_options) > 0 ? 1 : 0
   compartment_id = var.compartment_id
