@@ -1,31 +1,12 @@
-module "oci_lb" {  
-  default_compartment_id  = var.default_compartment_ocid
-  
-  lb_options            = {
-    display_name        = "test_lb"
-    compartment_id      = null
-    shape               = "10Mbps"
-    subnet_ids          = [oci_core_subnet.this.id]
-    private             = true
-    nsg_ids             = null
-    defined_tags        = null
-    freeform_tags       = null
-  }
-}
-
-resource "oci_core_vcn" "this" {
-  dns_label             = "temp"
-  cidr_block            = "192.168.0.0/16"
-  compartment_id        = var.compartment_id
-  display_name          = "temp"
-}
-
-resource "oci_core_subnet" "this" {
-  cidr_block            = "192.168.0.0/24"
-  compartment_id        = var.compartment_id
-  vcn_id                = oci_core_vcn.this.id
-
-  display_name          = "test"
-  dns_label             = "test"
-  prohibit_public_ip_on_vnic = false
+resource "oci_load_balancer_load_balancer" "this" {
+  #count          = var.lb_options == null ? 0 : length(var.lb_options) > 0 ? 1 : 0
+  compartment_ocid = var.compartment_ocid
+  display_name   = "fc-test-lb"
+  shape          = "10Mbps"
+  # can't really provide a default value here, so no need for additional logic (subnets must be user-defined)
+  #subnet_ids                 = var.lb_options.subnet_ids
+  is_private                 = true
+  #network_security_group_ids = var.lb_options.nsg_ids != null ? var.lb_options.nsg_ids : local.lb_options_defaults.nsg_ids
+  #defined_tags               = var.lb_options.defined_tags != null ? var.lb_options.defined_tags : local.lb_options_defaults.defined_tags
+  #freeform_tags              = var.lb_options.freeform_tags != null ? var.lb_options.freeform_tags : local.lb_options_defaults.freeform_tags
 }
