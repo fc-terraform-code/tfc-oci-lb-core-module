@@ -2,7 +2,7 @@ resource "oci_load_balancer_load_balancer" "this" {
   #count          = var.lb_options == null ? 0 : length(var.lb_options) > 0 ? 1 : 0
   compartment_id = var.compartment_id
   display_name   = "fc-test-lb"
-  shape          = "10Mbps"
+  shape          = "Flexible"
   # can't really provide a default value here, so no need for additional logic (subnets must be user-defined)
   subnet_ids                 = ["ocid1.subnet.oc1.iad.aaaaaaaat3oydi7ftmagvevgzxczhhpbhtqp3ytadnv2l3uelckxnjsgjm2q"]
   is_private                 = true
