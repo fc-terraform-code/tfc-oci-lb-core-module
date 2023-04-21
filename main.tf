@@ -1,10 +1,10 @@
-#--Configuracion para ser utilizada con GitHub Actions y Terraform Cloud
+#--GitHub Actions & Terraform Cloud config
 terraform {
   cloud {
-    organization = "tron_dataware"
+    organization = var.organization
 
     workspaces {
-      name = "learn-terraform-github-actions"
+      name = var.workspace_name
     }
   }
 }
@@ -12,7 +12,7 @@ terraform {
 resource "oci_load_balancer_load_balancer" "this" {
   #count          = var.lb_options == null ? 0 : length(var.lb_options) > 0 ? 1 : 0
   compartment_id = var.compartment_id
-  display_name   = "fc-test-lb"
+  display_name   = var.lb_name
   shape          = "flexible"
   shape_details {
     maximum_bandwidth_in_mbps = 10
