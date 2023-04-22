@@ -17,7 +17,7 @@ terraform {
 
 resource "oci_load_balancer_load_balancer" "this" {
   #count          = var.lb_options == null ? 0 : length(var.lb_options) > 0 ? 1 : 0
-  #compartment_id = var.compartment_id
+  compartment_id = var.compartment_id
   display_name   = var.display_name
   shape          = "flexible"
   shape_details {
