@@ -3,7 +3,7 @@ variable "user_ocid" {}
 variable "private_key" {}
 variable "region" {}
 variable "fingerprint" {}
-#variable "compartment_id" { type = string }
+variable "compartment_ocid" { type = string }
 variable "organization" {
   type    = string
   default = "tron_dataware"
