@@ -1,13 +1,3 @@
-terraform {
-  required_version = ">= 1.1.0"
-  required_providers {
-    oci = {
-      source  = "oracle/oci"
-      version = "= 4.101.0"
-    }
-  }
-}
-
 resource "oci_load_balancer_load_balancer" "this" {
   #count          = var.lb_options == null ? 0 : length(var.lb_options) > 0 ? 1 : 0
   compartment_id = var.compartment_ocid
