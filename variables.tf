@@ -4,6 +4,15 @@ variable "private_key" {}
 variable "region" {}
 variable "fingerprint" {}
 variable "compartment_id" { type = string }
-variable "organization" {}
-variable "name" {}
-variable "display_name" {}
+variable "organization" {
+  type    = string
+  default = "tron_dataware"
+}
+variable "name" {
+  type    = string
+  default = "lab_tfc_github_lb_oci"
+}
+variable "display_name" {
+  type    = string
+  default = "fc-test-lb-2"
+}
