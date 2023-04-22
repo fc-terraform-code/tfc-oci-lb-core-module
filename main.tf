@@ -8,9 +8,9 @@ terraform {
     }
   }
   cloud {
-    organization = var.organization
+    organization = "tron_dataware"
     workspaces {
-      name = var.name
+      name = "lab_tfc_github_lb_oci"
     }
   }
 }
